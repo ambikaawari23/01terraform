@@ -1,17 +1,20 @@
-name: Login
+name: Build and deploy an app to AKS
 
 on:
-  workflow_call:
-  
+ workflow_call:
+
 jobs:
-  install_az_cli:
+  azlogin:
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v3
-  
-   
-    - name: Azure login
-      uses: azure/login@v1.4.6
-      with:
-          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+      # Checks out the repository this file is in
+      - uses: actions/checkout@v3
+
+      # Logs in with your Azure credentials
+      - name: Azure login
+        uses: azure/login@v1.4.6
+        with:
+           creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
