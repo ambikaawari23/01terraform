@@ -3,11 +3,14 @@ on:
   workflow_call:
 
 jobs:
-  azlogin:
+ azlogin:
+    name: 'az-login' 
     runs-on: ubuntu-latest
+  
+    defaults:
+      run:
+        shell: basht
     steps:
-
-
       # Logs in with your Azure credentials
       - name: Azure login
         uses: azure/login@v1.4.6
