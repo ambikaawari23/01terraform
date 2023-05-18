@@ -1,0 +1,17 @@
+name: Login
+
+on:
+  workflow_call:
+  
+jobs:
+  install_az_cli:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+   
+    - name: Azure login
+      uses: azure/login@v1.4.6
+      with:
+          creds: '{"clientId":"${{ secrets.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ secrets.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.ARM_TENANT_ID }}"}'
