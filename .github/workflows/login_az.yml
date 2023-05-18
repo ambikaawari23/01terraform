@@ -1,14 +1,9 @@
-name: Build and deploy an app to AKS
-
+name: AZ_login
 on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-
-
+  workflow_call:
 
 jobs:
-  buildImage:
+  azlogin:
     permissions:
       contents: read
       id-token: write
