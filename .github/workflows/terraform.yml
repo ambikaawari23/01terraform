@@ -29,23 +29,23 @@ jobs:
        
   call-workflow-1-in-another-repo:
            #if: github.workflow == './.github/workflows/login_az.yml' 
-           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main
+           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@sseerla/main
            
 
   call-workflow-2-in-another-repo:
            #if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main' 
-           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main
+           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@sseerla/main
            with:
              tf_actions_working_dir: "./main.tf"          
 
   call-workflow-3-in-another-repo:
          # if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main'
-          uses: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main
+          uses: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@sseerla/main
 
 
   call-workflow-4-in-another-repo:
            #if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main'
-           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_apply.yml@main
+           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_apply.yml@sseerla/main
 
     
   
