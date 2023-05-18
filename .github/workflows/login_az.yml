@@ -1,11 +1,11 @@
+name: AzureLog
+
 on: 
  workflow_call:
 
-name: AzureLoginWithNoSubscriptions
-
 jobs:
 
-  build-and-deploy:
+ azlogin:
     runs-on: ubuntu-latest
     steps:
 
