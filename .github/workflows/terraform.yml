@@ -1,8 +1,8 @@
 name: 'Terraform'
  
 on:
-   push:
-    branches: ["main"]
+#    push:
+#     branches: ["main"]
    workflow_dispatch:
  
 
@@ -24,7 +24,7 @@ jobs:
           uses: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main
 
       call-workflow-4-in-another-repo:
-           if: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main'
+           if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main'
            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_apply.yml@main
 
     
