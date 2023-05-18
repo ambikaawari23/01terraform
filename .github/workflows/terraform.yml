@@ -7,7 +7,9 @@ on:
  
 
 jobs:
-  
+      call-workflow-in-local-repo:
+            uses: ./.github/workflows/login_az.yml
+            
       call-workflow-1-in-another-repo:
            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main
 
