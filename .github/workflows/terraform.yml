@@ -25,17 +25,19 @@ jobs:
       
      # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
   job2: 
-      runs-on: ubuntu-latest 
+  Terraform_action:
+    runs-on: ubuntu-latest
+       
        call-workflow-1-in-another-repo:
          uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main
 
-      call-workflow-2-in-another-repo:
+       call-workflow-2-in-another-repo:
            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main
 
-      call-workflow-3-in-another-repo:
+       call-workflow-3-in-another-repo:
              uses: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main
 
-      call-workflow-4-in-another-repo:
+       call-workflow-4-in-another-repo:
          uses: ambikaawari23/terraform_action/.github/workflows/Terraform_apply.yml@main
 
     
