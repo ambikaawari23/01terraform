@@ -5,32 +5,32 @@ on:
  
 jobs:
   
-#   terraform:
-#     name: 'Terraform'
-#     env:
-#       AZURE_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
-#       AZURE_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
-#       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-#       AZURE_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
-#     runs-on: ubuntu-latest
-#     environment: production
+   terraform:
+     name: 'Terraform'
+     env:
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+        AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        AZURE_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+     runs-on: ubuntu-latest
+     environment: production
  
-#     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-#     defaults:
-#       run:
-#         shell: bash
+     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+     defaults:
+       run:
+         shell: bash
         
-  call-workflow-1-in-another-repo:
-    uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main
- 
-  call-workflow-2-in-another-repo:
-    uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main
-    
-  call-workflow-3-in-another-repo:
-    uses: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main
-    
-  call-workflow-4-in-another-repo:
-    uses: ambikaawari23/terraform_action/.github/workflows/Terraform_apply.yml@main
-  
+          call-workflow-1-in-another-repo:
+            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main
+
+          call-workflow-2-in-another-repo:
+           uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main
+
+          call-workflow-3-in-another-repo:
+             uses: ambikaawari23/terraform_action/.github/workflows/Terrfaorm_plan.yml@main
+
+          call-workflow-4-in-another-repo:
+            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_apply.yml@main
+
     
   
