@@ -13,9 +13,9 @@ jobs:
       call-workflow-1-in-another-repo:
            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main
            
-if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml'  
 
       call-workflow-2-in-another-repo:
+           if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml' 
            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main
 
       call-workflow-3-in-another-repo:
