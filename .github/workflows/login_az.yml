@@ -1,14 +1,24 @@
-name: AzureLog
+name: Build and deploy an app to AKS
 
-on: 
- workflow_call:
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+
 
 jobs:
-
- azlogin:
+  buildImage:
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
     steps:
+      # Checks out the repository this file is in
+      - uses: actions/checkout@v3
 
-    - uses: azure/login@v1
-      with:
+      # Logs in with your Azure credentials
+      - name: Azure login
+        uses: azure/login@v1.4.6
+        with:
            creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
