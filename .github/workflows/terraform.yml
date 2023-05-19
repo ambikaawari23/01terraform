@@ -36,7 +36,7 @@ jobs:
            #if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terraform_init.yml@main' 
            uses: ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main
            with:
-                     
+                 tf_actions_working_dir: "./"      
 
   call-workflow-3-in-another-repo:
          # if: github.workflow == 'ambikaawari23/terraform_action/.github/workflows/Terraform_validate.yml@main'
