@@ -5,21 +5,21 @@ on: push
 
 jobs:
   tf_init:
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yaml@main
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
     secrets: inherit
     with:
       action: init
 
   tf_plan:
     needs: [tf_init]
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yaml@main
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
     secrets: inherit
     with:
       action: plan
 
   tf_apply:
     needs: [tf_plan]
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yaml@main
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
     secrets: inherit
     with:
-      action: apply
+      action: apply -auto-approve
