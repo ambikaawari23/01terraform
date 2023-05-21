@@ -22,4 +22,4 @@ jobs:
     uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@sseerla/main
     secrets: inherit
     with:
-      action: apply
+      action: apply -auto-approve
