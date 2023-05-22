@@ -4,22 +4,19 @@ on: push
 
 
 jobs:
-  tf_init:
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
-    secrets: inherit
-    with:
-      action: init
+ 
 
-  tf_plan:
-    needs: [tf_init]
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+  tf_plan:    
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform-plan.yml@main
     secrets: inherit
     with:
       action: plan
+#continueonerror: false
 
   tf_apply:
     needs: [tf_plan]
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+    #uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform-apply.yml@main
     secrets: inherit
     with:
       action: apply -auto-approve
