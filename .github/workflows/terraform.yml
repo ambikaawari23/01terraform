@@ -10,8 +10,8 @@ jobs:
     #uses: ambikaawari23/terraform_action/.github/workflows/terraform-plan.yml@main
     uses : MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-plan.yml@main
     secrets: inherit
-    with:
-      action: Terraform Plan
+#     with:
+#       action: Terraform Plan
 #continueonerror: false
 
 #   tf_apply:
