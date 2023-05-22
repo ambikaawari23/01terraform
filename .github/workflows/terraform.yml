@@ -11,7 +11,7 @@ jobs:
     uses : MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-plan.yml@main
     secrets: inherit
     with:
-      action: plan
+      action: Terraform Plan
 #continueonerror: false
 
 #   tf_apply:
