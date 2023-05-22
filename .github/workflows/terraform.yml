@@ -7,7 +7,8 @@ jobs:
  
 
   tf_plan:    
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform-plan.yml@main
+    #uses: ambikaawari23/terraform_action/.github/workflows/terraform-plan.yml@main
+    uses : MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-plan.yml@main
     secrets: inherit
     with:
       action: plan
@@ -16,7 +17,7 @@ jobs:
   tf_apply:
     needs: [tf_plan]
     #uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
-    uses: ambikaawari23/terraform_action/.github/workflows/terraform-apply.yml@main
+    uses: MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-apply.yml@main
     secrets: inherit
     with:
       action: apply -auto-approve
