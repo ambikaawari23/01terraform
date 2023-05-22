@@ -2,41 +2,91 @@ name: terraform
 
 on: push
 
-env:
-   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-   ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-   ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
 jobs:
-   buildImage:
-    permissions:
-      contents: read
-      id-token: write
-    runs-on: ubuntu-latest
-    steps:
-      # Checks out the repository this file is in
-      - uses: actions/checkout@v3
+  tf_init:
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+    secrets: inherit
+    with:
+      action: init
 
-      # Logs in with your Azure credentials
-      - name: Azure login
-        uses: azure/login@v1.4.6
-        with:
-           creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+  tf_plan:
+    needs: [tf_init]
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+    secrets: inherit
+    with:
+      action: plan
+
+  tf_apply:
+    needs: [tf_plan]
+    uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+    secrets: inherit
+    with:
+      action: apply -auto-approve
 
 
-   tf_plan:    
-    #uses: ambikaawari23/terraform_action/.github/workflows/terraform-plan.yml@main
-    uses : MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-plan.yml@main
-#    secrets: inherit
-#     with:
-#       action: Terraform Plan
-#continueonerror: false
 
-#   tf_apply:
-#     needs: [tf_plan]
-#     #uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
-#     uses: MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-apply.yml@main
-#     secrets: inherit
-#     with:
-#       action: apply -auto-approve
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: terraform
+
+# on: push
+
+# env:
+#    ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+#    ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+#    ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+#    ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+# jobs:
+#    buildImage:
+#     permissions:
+#       contents: read
+#       id-token: write
+#     runs-on: ubuntu-latest
+#     steps:
+#       # Checks out the repository this file is in
+#       - uses: actions/checkout@v3
+
+#       # Logs in with your Azure credentials
+#       - name: Azure login
+#         uses: azure/login@v1.4.6
+#         with:
+#            creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+
+
+#    tf_plan:    
+#     #uses: ambikaawari23/terraform_action/.github/workflows/terraform-plan.yml@main
+#     uses : MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-plan.yml@main
+# #    secrets: inherit
+# #     with:
+# #       action: Terraform Plan
+# #continueonerror: false
+
+# #   tf_apply:
+# #     needs: [tf_plan]
+# #     #uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
+# #     uses: MphasisPipelineFactory/shared-workflows/.github/workflows/terraform-apply.yml@main
+# #     secrets: inherit
+# #     with:
+# #       action: apply -auto-approve
+
+
+
