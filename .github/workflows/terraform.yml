@@ -32,7 +32,7 @@ jobs:
     secrets: inherit
     with:
       action: plan
-      input: ${{github.event.inputs.name}}
+      input: ${{inputs.name}}
 
   tf_apply:
     needs: [tf_plan]
@@ -40,4 +40,4 @@ jobs:
     secrets: inherit
     with:
       action: apply -auto-approve
-      input: ${{github.event.inputs.name}}
+      input: ${{inputs.name}}
