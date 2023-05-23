@@ -33,7 +33,7 @@ jobs:
     secrets: inherit
     with:
       action: plan
-      working-directory: ${{ inputs.working_dir }}
+#       working-directory: ${{ inputs.working_dir }}
 
 #   tf_apply:
 #     needs: [tf_plan]
