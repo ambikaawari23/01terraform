@@ -20,7 +20,6 @@ on:
 # #         # Input has to be provided for the workflow to run
 # #         required: true
 
-
 jobs:
 #   tf_init:
 #     uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
