@@ -22,7 +22,6 @@ on:
 # #         required: true
 
 jobs:
-
 #   tf_init:
 #     uses: ambikaawari23/terraform_action/.github/workflows/terraform_action.yml@main
 #     secrets: inherit
