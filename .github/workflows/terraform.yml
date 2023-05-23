@@ -32,7 +32,7 @@ jobs:
     secrets: inherit
     with:
       action: plan
-      working-directory: ${{ inputs.working_dir }}
+      working-directory: ambikaawari23/stg/terraform-stg/main.tf
 
   tf_apply:
     needs: [tf_plan]
@@ -40,4 +40,4 @@ jobs:
     secrets: inherit
     with:
       action: apply -auto-approve
-      working-directory: ${{ inputs.working_dir }}
+      working-directory: ambikaawari23/stg/terraform-stg/main.tf
