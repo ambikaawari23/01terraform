@@ -41,4 +41,4 @@ jobs:
     secrets: inherit
     with:
       action: apply -auto-approve
-      working-directory: ${{ inputs.working_dir }}
+      working-directory: ambikaawari23/stg/terraform-stg/main.tf
