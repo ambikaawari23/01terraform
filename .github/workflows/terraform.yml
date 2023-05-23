@@ -33,7 +33,7 @@ jobs:
     secrets: inherit
     with:
       action: plan
-      working-directory: ambikaawari23/stg/terraform-stg/main.tf
+      working-directory: ambikaawari23/stg/terraform-stg/main
 
   tf_apply:
     needs: [tf_plan]
@@ -41,4 +41,4 @@ jobs:
     secrets: inherit
     with:
       action: apply -auto-approve
-      working-directory: ambikaawari23/stg/terraform-stg/main.tf
+      working-directory: ambikaawari23/stg/terraform-stg/main
