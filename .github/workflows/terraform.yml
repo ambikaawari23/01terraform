@@ -1,13 +1,13 @@
 name: terraform
 
 on:
-
-  workflow_dispatch:
-   inputs:
-      working_dir:
-        type: string
-        default: .
-        required: true
+  push
+#   workflow_dispatch:
+#    inputs:
+#       working_dir:
+#         type: string
+#         default: .
+#         required: true
 #       action:
 #         type: string
 #         default: 'init'
